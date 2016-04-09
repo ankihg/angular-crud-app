@@ -16,6 +16,13 @@ angular.module('TreeApp', [])
         .catch(err => console.log(err));
     };
 
+    this.reset = function(species) {
+      console.log('reset species');
+      $http.get(this.path +'/'+ species._id)
+        .then(res => this.speciess[this.speciess.indexOf(species)] = res.data)
+        .catch(err => console.log(err));
+    };
+
     this.create = function(species) {
       $http.post(this.path, species)
         .then(res => this.speciess.push(res.data))
