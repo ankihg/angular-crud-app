@@ -9,7 +9,7 @@
 
     <ul>
       <li data-ng-repeat="species in speciessCtrl.speciess">
-        {{species}}
+        <big>{{species.genus}} {{species.species}}</big> <small>commonly</small> <big>{{species.cmnName}}</big>
 
           <button type="submit" data-ng-click="speciessCtrl.update.displayed = species._id">update</button>
 
@@ -39,7 +39,7 @@
 
     <ul>
       <li data-ng-repeat="tree in treesCtrl.trees">
-        {{tree}}
+        <big>{{tree.species.genus}} {{tree.species.species}}</big> <small>at</small> latitude:<big>{{tree.lat}}</big> <small>and</small> longitude:<big>{{tree.lng}}</big>
 
           <button type="submit" data-ng-click="treesCtrl.update.displayed = tree._id">update</button>
 
