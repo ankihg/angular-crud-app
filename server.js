@@ -27,4 +27,4 @@ app.use(router);
 
 // app.use('/trees', require(__dirname + '/routes/trees-router.js'));
 
-app.listen(3000, () => console.log('server speaking.'));
+app.listen(3000, () => console.log('server speaking on 3000'));
