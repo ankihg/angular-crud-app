@@ -4,14 +4,19 @@
     <meta charset="utf-8">
   </head>
   <body data-ng-app="TreeApp">
-    <main data-ng-controller="SpeciessController as speciessCtrl" data-ng-init="speciessCtrl.getSpeciess()">
+    <main data-ng-controller="SpeciessController as speciessCtrl" data-ng-init="speciessCtrl.read()">
     <h1>{{speciesCtrl.plz}}</h1>
 
     <ul>
-      <li data-ng-repeat="species in speciessCtrl.speciess">{{species}}</li>
+      <li data-ng-repeat="species in speciessCtrl.speciess">
+        {{species}}
+        <form data-ng-submit="speciessCtrl.delete(species)" style="display:inline" >
+          <button type="submit">delete</button>
+        </form>
+      </li>
     </ul>
 
-    <form data-ng-submit="speciessCtrl.createSpecies(species)">
+    <form data-ng-submit="speciessCtrl.create(species)">
       genus:<input type="text" data-ng-model="species.genus"></br>
       species:<input type="text" data-ng-model="species.species"></br>
       cmnName:<input type="text" data-ng-model="species.cmnName"></br>
