@@ -5,7 +5,7 @@
   </head>
   <body data-ng-app="TreeApp">
     <main data-ng-controller="SpeciessController as speciessCtrl" data-ng-init="speciessCtrl.read()">
-    <h1>{{speciesCtrl.plz}}</h1>
+    <h1>{{speciessCtrl.resource}}</h1>
 
     <ul>
       <li data-ng-repeat="species in speciessCtrl.speciess">
@@ -33,6 +33,37 @@
     </form>
 
     </main>
+
+    <main data-ng-controller="TreesController as treesCtrl" data-ng-init="treesCtrl.read()">
+    <h1>{{treesCtrl.resource}}</h1>
+
+    <ul>
+      <li data-ng-repeat="tree in treesCtrl.trees">
+        {{tree}}
+
+          <button type="submit" data-ng-click="treesCtrl.update.displayed = tree._id">update</button>
+
+          <button type="submit" data-ng-click="treesCtrl.delete(tree)">delete</button>
+
+        <form data-ng-show="treesCtrl.update.displayed === tree._id" data-ng-submit="treesCtrl.update(tree); treesCtrl.update.displayed = null">
+          species:<input type="text" data-ng-model="tree.species"></br>
+          lat:<input type="text" data-ng-model="tree.lat"></br>
+          lng:<input type="text" data-ng-model="tree.lng"></br>
+          <button type="submit">ok</button>
+          <button type="reset" data-ng-click="treesCtrl.reset(tree); treesCtrl.update.displayed = null">cancel</button>
+        </form>
+      </li>
+    </ul>
+
+    <form data-ng-submit="treesCtrl.create(tree)">
+      species:<input type="text" data-ng-model="tree.species"></br>
+      lat:<input type="text" data-ng-model="tree.lat"></br>
+      lng:<input type="text" data-ng-model="tree.lng"></br>
+      <button type="submit">create tree</button>
+    </form>
+
+    </main>
+
 
     <script src="./bundle.js"></script>
 
