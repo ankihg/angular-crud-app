@@ -10,8 +10,16 @@
     <ul>
       <li data-ng-repeat="species in speciessCtrl.speciess">
         {{species}}
-        <form data-ng-submit="speciessCtrl.delete(species)" style="display:inline" >
-          <button type="submit">delete</button>
+
+          <button type="submit" data-ng-click="speciessCtrl.update.displayed = species._id">update</button>
+
+          <button type="submit" data-ng-click="speciessCtrl.delete(species)">delete</button>
+
+        <form data-ng-show="speciessCtrl.update.displayed === species._id" data-ng-submit="speciessCtrl.update(species)">
+          genus:<input type="text" data-ng-model="species.genus"></br>
+          species:<input type="text" data-ng-model="species.species"></br>
+          cmnName:<input type="text" data-ng-model="species.cmnName"></br>
+          <button type="submit">create species</button>
         </form>
       </li>
     </ul>

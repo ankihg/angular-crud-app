@@ -74,6 +74,14 @@
 	        .catch(err => console.log(err));
 	    };
 
+	    this.update = function(species) {
+	      $http.put(this.path + '/' + species._id, species)
+	        .then(res => console.log(res.data))
+	        .catch(err => console.log(err));
+	    };
+	    this.update.displayed = null;
+
+
 
 	  }])
 
