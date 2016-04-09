@@ -14,5 +14,11 @@ angular.module('TreeApp', [])
         .catch(err => console.log(err));
     }
 
+    this.createSpecies = function(species) {
+      $http.post(serverPath+'/speciess', species)
+        .then(res => this.speciess.push(res.data))
+        .catch(err => console.log(err));
+    }
+
 
   }])

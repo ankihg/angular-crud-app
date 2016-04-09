@@ -11,6 +11,13 @@
       <li data-ng-repeat="species in speciessCtrl.speciess">{{species}}</li>
     </ul>
 
+    <form data-ng-submit="speciessCtrl.createSpecies(species)">
+      genus:<input type="text" data-ng-model="species.genus"></br>
+      species:<input type="text" data-ng-model="species.species"></br>
+      cmnName:<input type="text" data-ng-model="species.cmnName"></br>
+      <button type="submit">create species</button>
+    </form>
+
     </main>
 
     <script src="./bundle.js"></script>
