@@ -4,8 +4,12 @@
     <meta charset="utf-8">
   </head>
   <body data-ng-app="TreeApp">
-    <main data-ng-controller="SpeciesController as speciesCtrl">
+    <main data-ng-controller="SpeciessController as speciessCtrl" data-ng-init="speciessCtrl.getSpeciess()">
     <h1>{{speciesCtrl.plz}}</h1>
+
+    <ul>
+      <li data-ng-repeat="species in speciessCtrl.speciess">{{species}}</li>
+    </ul>
 
     </main>
 

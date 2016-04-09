@@ -46,10 +46,19 @@
 
 	'use strict';
 	const angular = __webpack_require__(1);
+	const serverPath = __webpack_require__(3).serverPath;
 
 	angular.module('TreeApp', [])
-	  .controller('SpeciesController', ['$http', function($http) {
+	  .controller('SpeciessController', ['$http', function($http) {
 	    this.plz = 'plz respond';
+
+	    this.speciess = [];
+
+	    this.getSpeciess = function() {
+	      $http.get(serverPath+'/speciess')
+	        .then(res => this.speciess = res.data)
+	        .catch(err => console.log(err));
+	    }
 
 
 	  }])
@@ -30781,6 +30790,17 @@
 	})(window, document);
 
 	!window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	exports.serverPort = 3000;
+	exports.serverPath = 'http://localhost:' + exports.serverPort;
+
+	exports.clientServerPort = 8080;
+	exports.clientServerPath = 'http://localhost:' + exports.clientServerPort;
+
 
 /***/ }
 /******/ ]);
