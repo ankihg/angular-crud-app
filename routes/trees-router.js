@@ -20,15 +20,22 @@ module.exports = (router, models) => {
     // });
   })
   .post((req, res) => {
+    console.log(req.body.species);
     // req.body.species = models.Species.findById(req.body.species);
+    // console.log(req.body.species);
     var newTree = new Tree(req.body);
     newTree.save((err, tree) => {
       if (err) {
         console.log(err);
-        return res.status(500).send('error creating tree').end();
+        return res.status(500).send('error creating tree');
       }
-      return res.status(200).json(tree).end();
+      Tree.populate(tree, {path:"species"}, (err, tree) => {
+        if (err) { res.status(500).json({msg: 'error populating tree', err:err}); return console.log(err); }
+        return res.status(200).json(tree);
+      })
     });
+
+
   });
 
   router.route('/trees/:id')
