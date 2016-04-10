@@ -1,6 +1,7 @@
 'use strict';
 const angular = require('angular');
 const serverPath = require('../config.js').serverPath;
+require('style!css!./styles/mystyle.css');
 
 angular.module('TreeApp', [])
   .controller('SpeciessController', ['$http', function($http) {
@@ -70,7 +71,7 @@ angular.module('TreeApp', [])
 
     this.delete = function(tree) {
       $http.delete(this.path+'/'+tree._id)
-        .then(res => this.speciess.splice(this.trees.indexOf(tree), 1))
+        .then(res => this.trees.splice(this.trees.indexOf(tree), 1))
         .catch(err => console.log(err));
     };
 
