@@ -1,6 +1,6 @@
 'use strict';
 const angular = require('angular');
-const serverPath = require('./config.js').serverPath;
+const serverPath = require('../config.js').serverPath;
 
 angular.module('TreeApp', [])
   .controller('SpeciessController', ['$http', function($http) {
