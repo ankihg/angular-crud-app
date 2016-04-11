@@ -53,7 +53,7 @@
 	  .controller('SpeciessController', ['$http', function($http) {
 	    this.plz = 'plz respond';
 
-	    this.resource = 'speciess'
+	    this.resource = 'speciess';
 	    this.path = `${serverPath}/${this.resource}`;
 	    this.speciess = [];
 

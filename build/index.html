@@ -2,9 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <style>
+      .ng-cloak {
+        display: none !important;
+      }
+    </style>
   </head>
   <body data-ng-app="TreeApp">
-    <main data-ng-controller="SpeciessController as speciessCtrl" data-ng-init="speciessCtrl.read()">
+    <main class="ng-cloak" data-ng-controller="SpeciessController as speciessCtrl" data-ng-init="speciessCtrl.read()" >
     <h1>{{speciessCtrl.resource.toUpperCase()}}</h1>
 
     <ul>
@@ -34,7 +39,7 @@
 
     </main>
 
-    <main data-ng-controller="TreesController as treesCtrl" data-ng-init="treesCtrl.read()">
+    <main class="ng-cloak" data-ng-controller="TreesController as treesCtrl" data-ng-init="treesCtrl.read()">
     <h1>{{treesCtrl.resource.toUpperCase()}}</h1>
 
     <ul>
